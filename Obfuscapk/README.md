@@ -4,11 +4,15 @@
 
 ---
 
+
+
 ## **❱ 원본 레포지토리**
 
 [Mobile-IoT-Security-Lab/Obfuscapk: An automatic obfuscation tool for Android apps that works in a black-box fashion, supports advanced obfuscation features and has a modular architecture easily extensible with new techniques](https://github.com/Mobile-IoT-Security-Lab/Obfuscapk?tab=readme-ov-file)
 
 ---
+
+
 
 ## **❱ 설치**
 
@@ -18,9 +22,13 @@ Obfuscapk를 사용하는 가장 효율적인 방법은 **Docker**를 이용하�
 $ git clone https://github.com/ClaudiuGeorgiu/Obfuscapk.git
 ```
 
+
+
 ### Docker image
 
 ---
+
+
 
 1. **사전 준비**
 
@@ -29,6 +37,8 @@ $ git clone https://github.com/ClaudiuGeorgiu/Obfuscapk.git
 ```jsx
 docker --version
 ```
+
+
 
 **2.    Docker 이미지 다운로드 및 준비**
 
@@ -49,6 +59,8 @@ docker pull claudiugeorgiu/obfuscapk
 docker tag claudiugeorgiu/obfuscapk obfuscapk
 ```
 
+
+
 1. **설치 확인**
 
 Docker Hub에서 offical image 다운 받았다면,  Obfuscapk/src directory에 Docker image build
@@ -59,18 +71,26 @@ Docker Hub에서 offical image 다운 받았다면,  Obfuscapk/src directory에 
  docker build -t obfuscapk .
 ```
 
+
+
 Docker image가 준비되었다면, 아래 명령어를 확인하여 잘 설치되었는지 확인합니다(도움말 메시지가 정상적으로 출력된다면 설치가 완료된 것입니다)
 
 ```bash
 docker run --rm -it obfuscapk --help
 ```
 
+
+
 usage: python3 -m obfuscapk.cli [-h] -o OBFUSCATOR [-w DIR] [-d OUT_APK_OR_AAB]
 ...
 
 ---
 
+
+
 ## **❱ Docker 역할**
+
+
 
 ### 💡 Git Clone vs. Docker Image
 
@@ -81,9 +101,13 @@ usage: python3 -m obfuscapk.cli [-h] -o OBFUSCATOR [-w DIR] [-d OUT_APK_OR_AAB]
 
 ---
 
+
+
 ## **❱사용법(Usage)**
 
 ---
+
+
 
 ### ## Obfuscapk 작동의 핵심 원리: 난독화 기법 + 마무리 작업
 
@@ -106,6 +130,8 @@ Obfuscapk의 작동 원리는 간단합니다. **"어떤 APK 파일을"**, **"�
 
 ---
 
+
+
 ### ## 실전 예제: APK 파일 난독화 따라하기
 
 **1. 작업 폴더 준비하기** 📂
@@ -124,7 +150,11 @@ Obfuscapk의 작동 원리는 간단합니다. **"어떤 APK 파일을"**, **"�
 cd C:\apk_test
 ```
 
+
+
 **3. 명령어 조립 및 실행하기** 
+
+
 
 - 이제 문서에 나온 예제(`RandomManifest`)를 사용해 명령어를 만들어 보겠습니다.
 - `d` 옵션을 추가해서 결과 파일 이름을 `obfuscated.apk`로 깔끔하게 지정해 줄게요.
@@ -143,6 +173,8 @@ docker run --rm -it -v  "C:\apk_test:/workdir" obfuscapk -d obfuscated.apk -o Ra
  docker run --rm -it -v "C:\apk_test:/workdir" obfuscapk --use-aapt2 -d renamed.apk -o Rename -o Rebuild -o NewAlignment -o NewSignature original.apk
 ```
 
+
+
 **명령어 분석:**
 
 - **`docker run ... -v "C:\apk_test:/workdir" obfuscapk`**: 도커를 실행하고, 현재 폴더(`C:\apk_test`)를 컨테이너의 작업 폴더와 연결합니다.
@@ -158,6 +190,8 @@ docker run --rm -it -v  "C:\apk_test:/workdir" obfuscapk -d obfuscated.apk -o Ra
 
 ---
 
+
+
 ### 요약
 
 - 항상 **별도의 작업 폴더**에서 시작하세요.(난독화를 진행할 때 마다 새로운 폴더를 만들어서 실행)
@@ -165,6 +199,8 @@ docker run --rm -it -v  "C:\apk_test:/workdir" obfuscapk -d obfuscated.apk -o Ra
 - 이제 `o RandomManifest` 부분을 다른 난독화 기술로 바꿔가며 어떤 변화가 생기는지 테스트해볼 수 있습니다. 여러 개의 난독화 기술을 동시에 적용할 수도 있습니다.
 
 ---
+
+
 
 ### 사용 가능한 난독화 기술 (`-o` 옵션)
 
@@ -186,6 +222,8 @@ docker run --rm -it -v  "C:\apk_test:/workdir" obfuscapk -d obfuscated.apk -o Ra
 
 ---
 
+
+
 ### ## 명령어 정리
 
 `docker run --rm -it -u $(id -u):$(id -g) -v "${PWD}":"/workdir" obfuscapk [params...]`
@@ -203,6 +241,8 @@ docker run --rm -it -v  "C:\apk_test:/workdir" obfuscapk -d obfuscated.apk -o Ra
 - `[params...]`: Obfuscapk의 실제 기능(옵션)을 지정하는 부분입니다. `-help`로 봤던 내용들이 여기에 들어갑니다.
 
 ---
+
+
 
 ### ## 주요 옵션 사용법 알아보기
 
