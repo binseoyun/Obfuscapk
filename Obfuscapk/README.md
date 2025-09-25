@@ -35,8 +35,9 @@ docker --version
 **Official Docker Hub image**
 
 Docker Hub에서 official Obfuscapk Docker image 접근
+<img width="1425" height="437" alt="image" src="https://github.com/user-attachments/assets/e4736229-64c2-4c98-afaa-44bc0aca6c4a" />
 
-![image.png](attachment:b9c2c0b0-b260-41de-b639-c1cc01a80298:image.png)
+
 
 Docker Hub에 있는 공식 Obfuscapk 이미지를 다운로드하고 사용하기 쉬운 이름으로 태그를 지정합니다.(터미널에서 실행)
 
